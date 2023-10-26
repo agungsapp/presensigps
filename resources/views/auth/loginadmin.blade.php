@@ -60,9 +60,6 @@
                   <div class="mb-2">
                     <label class="form-label">
                       Password
-                      <span class="form-label-description">
-                        <a href="./forgot-password.html">I forgot password</a>
-                      </span>
                     </label>
                     <div class="input-group input-group-flat">
                       <input type="password" name="password" class="form-control" placeholder="Your password" autocomplete="off">
@@ -79,13 +76,10 @@
                     </div>
                   </div>
                   <div class="mb-2">
-                    <label class="form-check">
-                      <input type="checkbox" class="form-check-input"/>
-                      <span class="form-check-label">Remember me on this device</span>
-                    </label>
+                        <a href="/">Login as user AB Cargo</a>
                   </div>
                   <div class="form-footer">
-                    <button type="submit" class="btn btn-danger w-100">Sign in</button>
+                    <button type="submit" class="btn btn-danger w-100" style="margin-top:2px">Sign in</button>
                   </div>
                 </form>
               </div>

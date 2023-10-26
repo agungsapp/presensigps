@@ -6,11 +6,11 @@
     <div class="row g-2 align-items-center">
       <div class="col">
         <!-- Page pre-title -->
-        <div class="page-pretitle">
+        <!-- <div class="page-pretitle">
           Overview
-        </div>
+        </div> -->
         <h2 class="page-title">
-          Dashboard Admin
+          Dashboard Admin AB Cargo
         </h2>
       </div>
     </div>

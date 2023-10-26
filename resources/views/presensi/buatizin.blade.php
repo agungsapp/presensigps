@@ -58,6 +58,30 @@ $(document).ready(function() {
   $(".datepicker").datepicker({
     format: "yyyy-mm-dd"    
   });
+  $("#tgl_izin").change(function(e){
+    var tgl_izin = $(this).val();
+    $.ajax({
+        type: 'POST',
+        url: '/presensi/cekpengajuanizin', // Perbaikan dalam URL
+        data: {
+            _token: "{{ csrf_token() }}",
+            tgl_izin: tgl_izin
+        },
+        cache: false,
+        success: function(respond){
+            if (respond == 1){
+                Swal.fire({
+                    title: 'Oops!',
+                    text: 'Anda sudah mengajukan izin untuk tanggal ini!',
+                    icon: 'warning'
+                }).then((result)=>{
+                    $("#tgl_izin").val("");
+                });
+            }
+        }
+    });
+});
+
   $("#frmIzin").submit(function(event){
     event.preventDefault();
     var tgl_izin = $("#tgl_izin").val();

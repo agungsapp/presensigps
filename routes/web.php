@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\KonfigurasiController;
 use App\Http\Controllers\PresensiController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\KaryawanController;
@@ -54,6 +55,7 @@ Route::middleware(['auth:karyawan'])->group(function () {
     Route::get('/presensi/izin', [PresensiController::class, 'izin']);
     Route::get('/presensi/buatizin', [PresensiController::class, 'buatizin']);
     Route::post('/presensi/storeizin', [PresensiController::class, 'storeizin']);
+    Route::post('/presensi/cekpengajuanizin', [PresensiController::class, 'cekpengajuanizin'])->name('cekpengajuanizin');
 });
 
 Route::middleware(['auth:user'])->group(function(){
@@ -73,4 +75,21 @@ Route::middleware(['auth:user'])->group(function(){
     Route::post('/departmen/edit', [DepartemenController::class, 'edit'])->name('edit');
     Route::post('/departmen/{kode_dept}/update', [DepartemenController::class, 'update'])->name('update');
     Route::post('/departmen/{kode_dept}/delete', [DepartemenController::class, 'delete'])->name('delete');
+
+     // Presensi
+     Route::get('/presensi/monitoring', [PresensiController::class, 'monitoring'])->name('monitoring');
+     Route::post('/getpresensi', [PresensiController::class, 'getpresensi'])->name('getpresensi');
+     Route::post('/tampilkanpeta', [PresensiController::class, 'tampilkanpeta'])->name('tampilkanpeta');
+     Route::get('/presensi/laporan', [PresensiController::class, 'laporan'])->name('laporan');
+     Route::post('/presensi/cetaklaporan', [PresensiController::class, 'cetaklaporan'])->name('cetaklaporan');
+     Route::get('/presensi/rekap', [PresensiController::class, 'rekap'])->name('rekap');
+     Route::post('/presensi/cetakrekap', [PresensiController::class, 'cetakrekap'])->name('cetakrekap');
+     Route::get('/presensi/izinsakit', [PresensiController::class, 'izinsakit'])->name('izinsakit');
+     Route::post('/presensi/approvedizinsakit', [PresensiController::class, 'approvedizinsakit'])->name('approvedizinsakit');
+     Route::get('/presensi/{id}/batalkanizinsakit', [PresensiController::class, 'batalkanizinsakit'])->name('batalkanizinsakit');
+     
+
+     //Konfigurasi
+     Route::get('/konfigurasi/lokasikantor', [KonfigurasiController::class, 'lokasikantor'])->name('lokasikantor');
+     Route::post('/konfigurasi/updatelokasikantor', [KonfigurasiController::class, 'updatelokasikantor'])->name('updatelokasikantor');
 });

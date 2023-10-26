@@ -6,7 +6,7 @@
         <div class="row g-2 align-items-center">
             <div class="col">
                 <h2 class="page-title">
-                    Data Karyawan
+                    Data Karyawan AB Cargo
                 </h2>
             </div>
         </div>
@@ -111,7 +111,7 @@
                                     <tbody>
                                         @foreach ($karyawan as $d)
                                         @php
-                                        $path = Storage::url('/uploads/karyawan/' . $d->foto);
+                                        $path = asset('assets/img/karyawan/' . $d->foto);
                                         @endphp
                                         <tr>
                                             <td class="text-center">{{$loop->iteration + $karyawan->firstItem() - 1}}</td>

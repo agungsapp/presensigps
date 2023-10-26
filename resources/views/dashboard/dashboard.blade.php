@@ -4,11 +4,11 @@
 <div class="section" id="user-section">
     <div id="user-detail" class="d-flex">
         <div class="avatar">
-            @if(!empty(Auth::guard('karyawan')->user()->foto))
+            @if (!empty(Auth::guard('karyawan')->user()->foto))
                 @php
-                    $path = Storage::url('uploads/karyawan/' . Auth::guard('karyawan')->user()->foto);
+                    $path = asset('assets/img/karyawan/' . Auth::guard('karyawan')->user()->foto);
                 @endphp
-                <img src="{{ url($path) }}" alt="avatar" class="imaged w64" style="height:60px">
+                <img src="{{ $path }}" alt="avatar" class="imaged w64" style="height: 60px">
             @else
                 <img src="{{ asset('assets/img/sample/avatar/avatar1.jpg') }}" alt="avatar" class="imaged w64 rounded">
             @endif
@@ -19,6 +19,10 @@
         </div>
     </div>
 </div>
+
+
+
+
 
 
 

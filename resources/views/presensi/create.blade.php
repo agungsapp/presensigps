@@ -90,6 +90,10 @@
         function successCallback(position) {
             lokasi.value = position.coords.latitude + "," + position.coords.longitude;
             var map = L.map('map').setView([position.coords.latitude, position.coords.longitude], 15);
+            var lokasi_kantor = " {{ $lokasi_kantor->lokasi_kantor }} ";
+            var lok = lokasi_kantor.split(",");
+            var lat_kantor = lok[0];
+            var long_kantor = lok[1]
             L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 maxZoom: 19,
                 attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -99,7 +103,7 @@
                 color: 'red',
                 fillColor: '#f03',
                 fillOpacity: 0.5,
-                radius: 500
+                radius: 30
             }).addTo(map);
         }
 
